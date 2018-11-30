@@ -9,7 +9,7 @@
 || ####################################################################
 \*======================================================================*/
 
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);;
 // db class for mysql
 // this class is used in all scripts
 // do NOT fiddle unless you know what you are doing
@@ -29,6 +29,11 @@ if (!defined('DB_QUERIES'))
 {
 	define('DB_QUERIES', false);
 }
+
+/**
+ * Require MySQL to MySQLi conversion if using >= PHP 7.0
+ */
+require_once('mysql/mysql_mysqli.inc.php');
 
 class DB_Sql_vb_impex
 {
